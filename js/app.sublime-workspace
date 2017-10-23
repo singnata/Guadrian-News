@@ -1,0 +1,379 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dat",
+				"dataCurrent"
+			],
+			[
+				"ur",
+				"urlCurrent\t(dataProvider.js)"
+			],
+			[
+				"url",
+				"urlCurrent"
+			],
+			[
+				"ba",
+				"barcelona.jpg"
+			],
+			[
+				"data",
+				"dataProvider"
+			],
+			[
+				"coon",
+				"console.log"
+			],
+			[
+				"get",
+				"getD"
+			],
+			[
+				"consol",
+				"console.log"
+			],
+			[
+				"getD",
+				"getData\t(dataProvider.js)"
+			],
+			[
+				"cns",
+				"console.log"
+			],
+			[
+				"cons",
+				"console.log"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"templ",
+				"templateHtml\t(main.js)"
+			],
+			[
+				"wea",
+				"weatherForecast"
+			],
+			[
+				"weather",
+				"weatherCurrent"
+			],
+			[
+				"t",
+				"temp"
+			],
+			[
+				"i",
+				"initialize"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fa",
+				"fabpot-info"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"attr",
+				"attr()"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"im",
+				"img"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"r",
+				"rkh\t(index.html)"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"gr",
+				"graham-info\t(index.html)"
+			],
+			[
+				"g",
+				"graham\t(index.html)"
+			],
+			[
+				"do",
+				"document.getElementByClassName('item"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"ls",
+				"list-style"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"lis",
+				"list-style"
+			],
+			[
+				"de",
+				"text-decoration"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"onc",
+				"onclick\tAttr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/sasha/Downloads/project-1-1/index.html",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/background.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/dataProvider.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/weatherForecast.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/templateHtml.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/weatherCurrent.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/main.js",
+		"/Users/sasha/Downloads/project-1-1/scripts/modules/showForecast.js",
+		"/Users/sasha/Downloads/project-1/.editorconfig",
+		"/Users/sasha/Downloads/project-1/.jshintrc",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/when/when.js",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/load-json-file/index.js",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/jshint/src/messages.js",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/async-done/index.js",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/cucumber/lib/cucumber.js",
+		"/Users/sasha/Downloads/app-bb-pages-manager/resources/scripts/common_scripts.sh",
+		"/Users/sasha/Downloads/app-bb-pages-manager/resources/scripts/install.sh",
+		"/Users/sasha/Downloads/app-bb-pages-manager/node_modules/accord/node_modules/uglify-js/tools/exports.js",
+		"/Users/sasha/Downloads/project-1/index.html",
+		"/Users/sasha/Downloads/project-1/scripts/modules/weatherForecast.js",
+		"/Users/sasha/Downloads/project-1/scripts/modules/showForecast.js",
+		"/Users/sasha/Downloads/project-1/scripts/modules/templateHtml.js",
+		"/Users/sasha/Downloads/project-1/scripts/modules/weatherCurrent.js",
+		"/Users/sasha/Downloads/project-1/scripts/main.js",
+		"/Users/sasha/Downloads/project-1/scripts/ajax.js",
+		"/Users/sasha/Downloads/project-1/scripts/lodash.js",
+		"/Users/sasha/Downloads/project-1/scripts/app.js",
+		"/Users/sasha/Documents/html jquery/index.html",
+		"/Users/sasha/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/Default (OSX).sublime-keymap",
+		"/Users/sasha/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/.jshintrc",
+		"/Users/sasha/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/Users/sasha/Documents/html jquery/js/main.js",
+		"/Users/sasha/Documents/start_html-master/index.html",
+		"/Users/sasha/Documents/start_html-master/js/main.js",
+		"/Users/sasha/Documents/start_html-master/css/animation.css",
+		"/Users/sasha/Documents/start_html-master/css/main.css",
+		"/Users/sasha/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/sasha/Desktop/tt.js",
+		"/Users/sasha/Desktop/tt.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 166.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "app.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
