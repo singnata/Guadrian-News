@@ -32,7 +32,7 @@ button, button:focus {
     outline: none;
 }
 button:hover {
-	background-color: #C0C0C0;
+	background-color: #f6f6f6;
 	transform: scale(1.1);
 	transition: all .25s ease-in-out;
 }
@@ -49,13 +49,13 @@ margin-bottom: 30px;
 
 .content {
 	font-size: 15px;
-	transition: all 5s ease-in-out;
 }
 
 span {
 	float: right;
 }
 .page button:hover {
+	background-color: #fff;
 	transform: none;
 	transition: none;
 }
@@ -73,6 +73,12 @@ span {
 
 button[ng-disabled="true"] {
 	opacity: 0.4;
+}
+
+p[ng-if="errorMessage"] {
+	font-size: 25px;
+	margin-top: 50px;
+	color: red;
 }
 
 
