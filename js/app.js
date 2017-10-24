@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller('getData', function($scope, $http) {
+app.controller('getDataController', function($scope, $http) {
   $scope.page = 1;
   $scope.loadData = function() {
      $http.get('http://content.guardianapis.com/search?order-by=newest&show-blocks=body&page=' + $scope.page + '&page-size=10&api-key=7b1d6125-4065-4550-ba22-0547ec51c825')
