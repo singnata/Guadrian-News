@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="myApp" >
-	<div ng-controller="getDataController">
+	<div ng-controller="newsFeedController">
 		<p ng-if="errorMessage">{{errorMessage}}</p>
 		<div ng-hide="errorMessage" >
 			<h1>The Guardian News</h1>
@@ -18,14 +18,15 @@
 						<span class="glyphicon" ng-class="{'glyphicon-menu-right': hide, 'glyphicon-menu-down': !hide}"></span>
 					</p>
 					<p class="content" ng-hide="hide">
-						{{ x.blocks.body[0].bodyTextSummary | limitTo : 300}}...
+						{{ x.blocks.body[0].bodyTextSummary | limitTo : 300 }}
+						{{ x.blocks.body[0].bodyTextSummary.length > 300 ? '...' : '' }}
 						<a href="{{x.webUrl}}">Read full news</a>
 					</p>
 				</li> 
 			</ul>
 			<div class="page">
 				<button ng-click="previousPage()" ng-disabled="{{data.currentPage === 1}}">Previous Page  <span class="glyphicon glyphicon-menu-left"></span></button>
-				<input type="" name="" placeholder="change page" ng-keydown="$event.keyCode === 13 && changePage(currentPage)" ng-model="currentPage">  {{data.currentPage}} the {{data.pages}} 
+				<input type="" name="" placeholder="change page" ng-keydown="$event.keyCode === 13 && changePage(currentPage)" ng-model="currentPage">  {{data.currentPage}} the {{pages}} 
 				<button ng-click="nextPage()">Next Page  <span class="glyphicon glyphicon-menu-right"></span></button>
 			</div>
 		</div>
