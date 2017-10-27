@@ -2,48 +2,58 @@ var app = angular.module('myApp', []);
 
 
 app.service('newsDataService', function($http) {
-    this.apiData = function(number) {
-        return $http.get('http://content.guardianapis.com/search?order-by=newest&show-blocks=body&page=' + number + '&page-size=10&api-key=7b1d6125-4065-4550-ba22-0547ec51c825')
+    this.loadNewsItems = function(page) {
+      return $http.get('http://content.guardianapis.com/search', {
+        params: {
+          'order-by': 'newest',
+          'show-blocks': 'body',
+          'page': page,
+          'page-size': 10,
+          'api-key': '7b1d6125-4065-4550-ba22-0547ec51c825'
+        }
+      }).then(function(response) {
+        return {
+          newsItems: response.data.response.results,
+          pages: response.data.response.pages
+        };
+      })
     }
 });
 
 app.controller('newsFeedController', function($scope, newsDataService) {
+  $scope.currentPage = 1;
 
-  var numberPage = 1;
-
-  $scope.loadData = function() {
-    newsDataService.apiData(numberPage).then(function(response) {
-      $scope.data = response.data.response;
-      $scope.currentPage = response.data.response.currentPage;
-      $scope.pages = response.data.response.pages;
+  $scope.loadNewsItems = function() {
+    newsDataService.loadNewsItems($scope.currentPage).then(function(response) {
+      $scope.newsItems = response.newsItems;
+      $scope.pages = response.pages;
     }, function() {
-        $scope.errorMessage = "Sorry, we couldn't find news for you. Please try again later";
-       });
+      $scope.errorMessage = "Sorry, we couldn't find news for you. Please try again later";
+    });
   };
 
-  $scope.loadData();
+  $scope.loadNewsItems();
 
   $scope.nextPage = function() {
-    numberPage === $scope.currentPage;
-    numberPage++;
-    $scope.loadData();
+    $scope.currentPage++;
+    $scope.changePage($scope.currentPage);
   };
 
   $scope.previousPage = function() {
-    numberPage === $scope.currentPage;
-    if(numberPage > 1) {
-      numberPage--;
-      $scope.loadData();
+    if ($scope.currentPage > 1) {
+      $scope.changePage($scope.currentPage - 1);
     }
   };
 
-  $scope.changePage = function(userValue) {
-    numberPage = userValue;
-    $scope.loadData();
-  };
+
+  $scope.changePage = function(newPage) {
+    $scope.currentPage = newPage;
+    $scope.loadNewsItems();   
+    }
 });
 
 
 app.controller('accordionController', function($scope) {
   $scope.hide = true;
 });
+

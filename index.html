@@ -10,24 +10,28 @@
 		<p ng-if="errorMessage">{{errorMessage}}</p>
 		<div ng-hide="errorMessage" >
 			<h1>The Guardian News</h1>
-			<button ng-click="loadData()">Refresh</button>
+			<button ng-click="loadNewsItems()">Refresh</button>
 			<ul ng-controller="accordionController">
-				<li ng-repeat="x in data.results">
+				<li ng-repeat="newsItem in newsItems">
 					<p ng-click="hide=!hide">
-						{{ x.webTitle}} 
+						{{ newsItem.webTitle}}
 						<span class="glyphicon" ng-class="{'glyphicon-menu-right': hide, 'glyphicon-menu-down': !hide}"></span>
 					</p>
 					<p class="content" ng-hide="hide">
-						{{ x.blocks.body[0].bodyTextSummary | limitTo : 300 }}
-						{{ x.blocks.body[0].bodyTextSummary.length > 300 ? '...' : '' }}
-						<a href="{{x.webUrl}}">Read full news</a>
+						{{ newsItem.blocks.body[0].bodyTextSummary | limitTo : 300 }}
+						{{ newsItem.blocks.body[0].bodyTextSummary.length > 300 ? '...' : '' }}
+						<a href="{{newsItem.webUrl}}">Read full news</a>
 					</p>
-				</li> 
+				</li>
 			</ul>
 			<div class="page">
-				<button ng-click="previousPage()" ng-disabled="{{data.currentPage === 1}}">Previous Page  <span class="glyphicon glyphicon-menu-left"></span></button>
-				<input type="" name="" placeholder="change page" ng-keydown="$event.keyCode === 13 && changePage(currentPage)" ng-model="currentPage">  {{data.currentPage}} the {{pages}} 
-				<button ng-click="nextPage()">Next Page  <span class="glyphicon glyphicon-menu-right"></span></button>
+				<button ng-click="previousPage()" ng-disabled="currentPage === 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
+				<form name="pageForm">
+					<input type="text" name="pageInput" placeholder="change page"  ng-pattern="/^[1-9]+$/" ng-keypress="$event.keyCode == 13 && changePage(pageInputValue)" ng-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
+					{{currentPage}} the {{pages}}
+					<span ng-show="pageForm.pageInput.$error.pattern">Please enter a number from 1</span>	
+				</form>
+				<button ng-click="nextPage()">Next Page <span class="glyphicon glyphicon-menu-right"></span></button>
 			</div>
 		</div>
 	</div>

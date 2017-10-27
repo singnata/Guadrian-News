@@ -64,14 +64,14 @@ span {
 	width: 150px;
 	height: 50px;
 	padding: 5px;
-		
+
 }
 
 .page button:first-child span {
 	float: left;
 }
 
-button[ng-disabled="true"] {
+button[disabled] {
 	opacity: 0.4;
 }
 
@@ -79,6 +79,26 @@ p[ng-if="errorMessage"] {
 	font-size: 25px;
 	margin-top: 50px;
 	color: red;
+}
+
+.ng-invalid-pattern input {
+	border:1px solid #FF0000;
+	outline: none;
+}
+form {
+	display: inline-block;
+	position: relative;
+}
+
+form span {
+	position: absolute;
+	top: 40px;
+    left: 0;
+    color: #FF0000
+}
+
+.page {
+	margin-bottom: 100px;
 }
 
 
