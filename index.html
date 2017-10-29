@@ -11,25 +11,24 @@
 		<div ng-hide="errorMessage" >
 			<h1>The Guardian News</h1>
 			<button ng-click="loadNewsItems()">Refresh</button>
-			<ul ng-controller="accordionController">
-				<li ng-repeat="newsItem in newsItems">
-					<p ng-click="hide=!hide">
+			<ul >
+				<li ng-controller="newsItemController" ng-repeat="newsItem in newsItems">
+					<p  ng-click="showNewsTextSummary(newsItem.id)">
 						{{ newsItem.webTitle}}
-						<span class="glyphicon" ng-class="{'glyphicon-menu-right': hide, 'glyphicon-menu-down': !hide}"></span>
+						<span class="glyphicon" ng-class="{'glyphicon-menu-right': !show, 'glyphicon-menu-down': show}"></span>
 					</p>
-					<p class="content" ng-hide="hide">
-						{{ newsItem.blocks.body[0].bodyTextSummary | limitTo : 300 }}
-						{{ newsItem.blocks.body[0].bodyTextSummary.length > 300 ? '...' : '' }}
-						<a href="{{newsItem.webUrl}}">Read full news</a>
+					<p ng-if="show" class="content">
+						{{newsItemSummary | newsSummaryLimit : 300}}
+						<a ng-href="https://www.theguardian.com/{{newsItem.id}}" target="new">Read full news</a>
 					</p>
 				</li>
 			</ul>
 			<div class="page">
-				<button ng-click="previousPage()" ng-disabled="currentPage === 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
+				<button ng-click="previousPage()" ng-disabled="currentPage == 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
 				<form name="pageForm">
-					<input type="text" name="pageInput" placeholder="change page"  ng-pattern="/^[1-9]+$/" ng-keypress="$event.keyCode == 13 && changePage(pageInputValue)" ng-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
-					{{currentPage}} the {{pages}}
-					<span ng-show="pageForm.pageInput.$error.pattern">Please enter a number from 1</span>	
+					<input type="text" name="pageInput" placeholder="change page" ng-pattern="/^[0-9]+$/" ng-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
+					{{currentPage}} of the {{pages}}
+					<span ng-show="pageForm.pageInput.$error.pattern">Please enter a number</span>	
 				</form>
 				<button ng-click="nextPage()">Next Page <span class="glyphicon glyphicon-menu-right"></span></button>
 			</div>
