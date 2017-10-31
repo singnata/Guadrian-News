@@ -26,7 +26,7 @@
 			<div class="page">
 				<button ng-click="previousPage()" ng-disabled="currentPage == 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
 				<form name="pageForm">
-					<input type="text" name="pageInput" placeholder="change page" ng-pattern="/^[0-9]+$/" ng-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
+					<input type="text" name="pageInput" placeholder="change page" ng-pattern="/^[0-9]+$/" ng-enter-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
 					{{currentPage}} of the {{pages}}
 					<span ng-show="pageForm.pageInput.$error.pattern">Please enter a number</span>	
 				</form>
