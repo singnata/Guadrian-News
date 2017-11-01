@@ -6,31 +6,32 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="myApp" >
-	<div ng-controller="newsFeedController">
-		<p ng-if="errorMessage">{{errorMessage}}</p>
-		<div ng-hide="errorMessage" >
+	<div ng-controller="NewsFeedController as newsFeedController">
+		<p ng-if="newsFeedController.errorMessage">{{errorMessage}}</p>
+		<div ng-hide="newsFeedController.errorMessage">
 			<h1>The Guardian News</h1>
-			<button ng-click="loadNewsItems()">Refresh</button>
+			<button ng-click="newsFeedController.loadNewsItems()">Refresh</button>
 			<ul >
-				<li ng-controller="newsItemController" ng-repeat="newsItem in newsItems">
-					<p  ng-click="showNewsTextSummary(newsItem.id)">
+				<li ng-controller="NewsItemController as newsItemController" ng-repeat="newsItem in newsFeedController.newsItems">
+					<div ng-click="newsItemController.showNewsTextSummary(newsItem.id)">
 						{{ newsItem.webTitle}}
-						<span class="glyphicon" ng-class="{'glyphicon-menu-right': !show, 'glyphicon-menu-down': show}"></span>
-					</p>
-					<p ng-if="show" class="content">
-						{{newsItemSummary | newsSummaryLimit : 300}}
-						<a ng-href="https://www.theguardian.com/{{newsItem.id}}" target="new">Read full news</a>
-					</p>
+						<span class="glyphicon" ng-class="{'glyphicon-menu-right': !newsItemController.show, 'glyphicon-menu-down': newsItemController.show}"></span>
+					</div>
+					<div ng-if="newsItemController.show" class="content">
+						<div class="loader" ng-if="newsItemController.isLoading"></div>
+						{{newsItemController.newsItemSummary | newsSummaryLimit : 300}}
+						<a ng-href="{{newsItem.webUrl}}" target="new">Read full news</a>
+					</div>
 				</li>
 			</ul>
 			<div class="page">
-				<button ng-click="previousPage()" ng-disabled="currentPage == 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
+				<button ng-click="newsFeedController.previousPage()" ng-disabled="currentPage == 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
 				<form name="pageForm">
-					<input type="text" name="pageInput" placeholder="change page" ng-pattern="/^[0-9]+$/" ng-enter-blur="changePage(pageInputValue)" ng-model="pageInputValue" required>
-					{{currentPage}} of the {{pages}}
-					<span ng-show="pageForm.pageInput.$error.pattern">Please enter a number</span>	
+					<input type="number" min = "0" step = "1" name="pageInput" placeholder="change page" ng-enter-blur="newsFeedController.changePage(pageInputValue)" ng-pattern="/^[1-9][0-9]*$/"  ng-model="pageInputValue" required>
+					{{newsFeedController.currentPage}} of the {{newsFeedController.pages}}
+					<span ng-if="pageForm.pageInput.$error.pattern">Please enter a number</span>	
 				</form>
-				<button ng-click="nextPage()">Next Page <span class="glyphicon glyphicon-menu-right"></span></button>
+				<button ng-click="newsFeedController.nextPage()">Next Page <span class="glyphicon glyphicon-menu-right"></span></button>
 			</div>
 		</div>
 	</div>

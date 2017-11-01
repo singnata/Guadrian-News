@@ -1,6 +1,5 @@
 var app = angular.module('myApp', []);
 
-
 app.service('newsDataService', function($http) {
 
     this.loadNewsItems = function(page) {
@@ -35,65 +34,56 @@ app.service('newsDataService', function($http) {
     }
 });
 
+app.controller('NewsItemController', function(newsDataService) {
+  var vm = this;
+  vm.isLoading = true;
+  vm.show = false;
 
-app.controller('newsItemController', function($scope, newsDataService) {
-
-  $scope.loadNewsItemSummary = function(id) {newsDataService.loadNewsItemSummary(id).then(function(response) {
-    $scope.newsItemSummary = response.newsItemSummary;
-    })
+  vm.loadNewsItemSummary = function(id) { 
+    if (vm.isLoading) {
+      newsDataService.loadNewsItemSummary(id).then(function(response) {
+      vm.newsItemSummary = response.newsItemSummary;
+      vm.isLoading = false; 
+      }) 
+    };
   };
 
-  $scope.show = false;
+  vm.showNewsTextSummary = function(id) {
+    vm.loadNewsItemSummary(id);
+    vm.show = !vm.show;
+    };
 
-  $scope.showNewsTextSummary = function(id) {
-    if (!$scope.show) {
-      $scope.loadNewsItemSummary(id);
-      $scope.show = true;
-    } else {
-      $scope.show = false ;
-    }
-  };
+  });
 
-  /*$scope.loadNewsItemSummary = function(id) {newsDataService.loadNewsInfo(id).then(function(response) {
-    $scope.newsItemSummary = response.newsItemSummary;
-    }).then(function() {
-      $scope.show = !$scope.show;
-    })
-  };*/
+app.controller('NewsFeedController', function(newsDataService) {
+  var vm = this;
+  vm.currentPage = 1;
 
-});
-
-app.controller('newsFeedController', function($scope, newsDataService) {
-  $scope.currentPage = 1;
-
-  $scope.loadNewsItems = function() {
-    newsDataService.loadNewsItems($scope.currentPage).then(function(response) {
-      $scope.newsItems = response.newsItems;
-      $scope.pages = response.pages
+  vm.loadNewsItems = function() {
+    newsDataService.loadNewsItems(vm.currentPage).then(function(response) {
+      vm.newsItems = response.newsItems;
+      vm.pages = response.pages
     }, function() {
-      $scope.errorMessage = "Sorry, we couldn't find news for you. Please try again later";
+      vm.errorMessage = "Sorry, we couldn't find news for you. Please try again later";
     });
   };
 
-  $scope.loadNewsItems();
+  vm.loadNewsItems();
 
-  $scope.nextPage = function() {
-    $scope.currentPage++;
-    $scope.changePage($scope.currentPage);
+  vm.nextPage = function() {
+    vm.changePage(vm.currentPage + 1);
   };
 
-  $scope.previousPage = function() {
-    if ($scope.currentPage > 1) {
-      $scope.changePage($scope.currentPage - 1);
+  vm.previousPage = function() {
+    if (vm.currentPage > 1) {
+      vm.changePage(vm.currentPage - 1);
     }
   };
 
-
-  $scope.changePage = function(newPage) {
-    $scope.currentPage = newPage;
-    $scope.loadNewsItems();   
+  vm.changePage = function(newPage) {
+    vm.currentPage = newPage;
+    vm.loadNewsItems();   
     }
-
 
 });
 
@@ -106,7 +96,6 @@ app.controller('newsFeedController', function($scope, newsDataService) {
       return $filter('limitTo')(newsSummary, limit) + '...';
    };
 }]);
-
 
 app.directive('ngEnterBlur', function () {
   return function (scope, element, attrs) {
