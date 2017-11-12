@@ -15,6 +15,7 @@ li {
 
 div {
 	text-align: center;
+	padding-right: 60px;	
 }
 
 button, button:focus {
@@ -45,9 +46,20 @@ margin-bottom: 30px;
 	font-size: 15px;
 	margin-top: 30px;
 	text-align: left;
+
 }
 
-span {
+span.show-content {
+	float: right;
+	padding: 20px;
+	top: -15px;
+	margin-right: -80px;
+}
+
+span.show-content:hover {
+	cursor: pointer;
+}
+span.glyphicon-menu-right {
 	float: right;
 }
 .page button:hover {
@@ -71,7 +83,7 @@ button[disabled] {
 	opacity: 0.4;
 }
 
-div[ng-if="newsFeedController.errorMessage"] {
+div[ng-if="$ctrl.errorMessage"] {
 	font-size: 25px;
 	margin-top: 50px;
 	color: red;
@@ -86,19 +98,13 @@ form {
 	position: relative;
 }
 
-form span {
-	position: absolute;
-	top: 40px;
-    left: 0;
-    color: #FF0000
-}
-
 .page {
 	margin-bottom: 100px;
 }
 
 
 .loader {
+	padding: 0;
   border: 10px solid #f3f3f3;
   border-radius: 50%;
   border-top: 10px solid #3498db;

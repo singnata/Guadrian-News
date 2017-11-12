@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <head>
 <title>Guardian news</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-app="myApp" >
-	<div ng-init="newsFeedController.loadNewsItems()" ng-controller="NewsFeedController as newsFeedController">
-		<div ng-if="newsFeedController.errorMessage">{{newsFeedController.errorMessage}}</div>
-		<div ng-hide="newsFeedController.errorMessage">
-			<h1>The Guardian News</h1>
-			<button ng-click="newsFeedController.loadNewsItems()">Refresh</button>
-			<ul >
-				<li ng-controller="NewsItemController as newsItemController" ng-repeat="newsItem in newsFeedController.newsItems">
-					<div ng-click="newsItemController.loadNewsItemSummary(newsItem.id)">
-						{{ newsItem.webTitle}}
-						<span class="glyphicon" ng-class="{'glyphicon-menu-right': !newsItemController.show, 'glyphicon-menu-down': newsItemController.show}"></span>
-					</div>
-					<div ng-if="newsItemController.show" class="content">
-						<div class="loader" ng-if="newsItemController.isLoading"></div>
-						{{newsItemController.newsItemSummary}}
-						<a ng-href="{{newsItem.webUrl}}" target="new">Read full news</a>
-					</div>
-				</li>
-			</ul>
-			<div class="page">
-				<button ng-click="newsFeedController.previousPage()" ng-disabled="newsFeedController.currentPage == 1">Previous Page <span class="glyphicon glyphicon-menu-left"></span></button>
-				<form name="pageForm">
-					<input type="number" name="pageInput" placeholder="change page" ng-blur="newsFeedController.changePage(pageInputValue)" ng-pattern="/^[1-9][0-9]*$/"  ng-model="pageInputValue" required>
-					{{newsFeedController.currentPage}} of the {{newsFeedController.pages}}
-					<span ng-if="pageForm.pageInput.$error.pattern">Please enter a number</span>	
-				</form>
-				<button ng-click="newsFeedController.nextPage()">Next Page <span class="glyphicon glyphicon-menu-right"></span></button>
-			</div>
-		</div>
-	</div>
+<body ng-app="myApp">
+
+	<news-feed item="item"></news-feed>
+	<news-feed-item></news-feed-item>
 
     <!-- Modules -->
 	<script src="js/app.js"></script>
+
+		<!-- Services -->
+	<script src="js/services/newsDataService.js"></script>
+
+		<!-- Controllers -->
+	<script src="js/controllers/newsFeedController.js"></script>
+	<script src="js/controllers/newsItemController.js"></script>	
+
+		<!-- Directives -->	
+	<script src="js/directives/ngEnterBlurDirective.js"></script>
+	<script src="js/directives/newsFeedDirective.js"></script>
+	<script src="js/directives/newsFeedItemDirective.js"></script>
+
+		<!-- Filters -->
+	<script src="js/filters/limitFilter.js"></script>
+
 
 </body>
