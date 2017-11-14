@@ -1,5 +1,5 @@
 class NewsFeedItemDirective {
-  constructor(Newsfeedcontroller) {
+  constructor() {
     this.restrict = 'EA';
     this.template = `
     <div>it's my not working directive</div>
