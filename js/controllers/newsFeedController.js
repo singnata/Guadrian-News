@@ -11,8 +11,10 @@ class NewsFeedController {
       (() => this.errorMessage = "Sorry, we couldn't find news for you. Please try again later")); 
   }
   changePage(newPage) {
-    this.currentPage = newPage;
-    this.loadNewsItems();   
+    if (newPage) {
+      this.currentPage = newPage;
+      this.loadNewsItems(this.currentPage);  
+    } 
   }
   nextPage() {
     this.changePage(this.currentPage + 1);

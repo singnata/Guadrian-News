@@ -10,8 +10,9 @@ class NewsItemController {
       this.NewsDataService.loadNewsItemSummary(id)
       .then((response) => this.newsItemSummary = response.newsItemSummary)
       .finally(() => this.isLoading = false) 
-    }
+    };
   }
+
 };
 
 angular.module('myApp')

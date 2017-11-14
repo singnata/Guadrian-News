@@ -1,5 +1,5 @@
 class NewsFeedItemDirective {
-  constructor() {
+  constructor(Newsfeedcontroller) {
     this.restrict = 'EA';
     this.template = `
     <div>it's my not working directive</div>
@@ -7,7 +7,6 @@ class NewsFeedItemDirective {
     `;
     this.controller = NewsItemController;
     this.controllerAs = '$ctrl';
-    this.scope = {item: '='};
     this.bindToController = true;
   }
   createNewsFeedItemDirectie() {
@@ -16,7 +15,6 @@ class NewsFeedItemDirective {
       this.template,
       this.controller,
       this.controllerAs,
-      this.scope,    
       this.bindToController
     }
   }
