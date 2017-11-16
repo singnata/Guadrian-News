@@ -1,4 +1,5 @@
-function ngEnterBlurDirective() {
+(function() {
+  function ngEnterBlurDirective() {
   return function (scope, element, attrs) {
     element.bind("keydown keypress blur", function (event) {
       if(event.which === 13 || event.type === "blur") {
@@ -10,7 +11,12 @@ function ngEnterBlurDirective() {
     });
   };
 };
+  angular.module('myApp')
+  .directive('ngEnterBlur', ngEnterBlurDirective);
+})()
 
-angular.module('myApp')
-    .directive('ngEnterBlur', ngEnterBlurDirective);
+
+
+
+
     

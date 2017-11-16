@@ -1,4 +1,4 @@
-angular.module('myApp').filter('limitFilter', ['$filter', function($filter) {
+angular.module('myApp').filter('limitFilter', function($filter) {
  	return function(newsSummary, limit) {		    
   if (!newsSummary) return;		   
     if (newsSummary.length < limit) {		      
@@ -6,4 +6,4 @@ angular.module('myApp').filter('limitFilter', ['$filter', function($filter) {
     }		       
     return $filter('limitTo')(newsSummary, limit) + '...';		      
   };		   
-}]);	
+});	

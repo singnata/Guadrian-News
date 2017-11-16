@@ -1,3 +1,4 @@
+(function() {
 class NewsItemController {
   constructor(NewsDataService) {
     this.NewsDataService = NewsDataService;
@@ -12,8 +13,8 @@ class NewsItemController {
       .finally(() => this.isLoading = false) 
     };
   }
-
 };
-
 angular.module('myApp')
     .controller('NewsItemController', NewsItemController)
+})()
+

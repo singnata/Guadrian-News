@@ -1,9 +1,9 @@
-ul {
+.list {
 	margin: 50px auto;
 	padding: 0 20%;
 }
 
-li {
+.item {
 	font-size: 18px;
 	text-align: left;
 	border: 1px solid #000;
