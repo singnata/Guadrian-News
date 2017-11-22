@@ -2,30 +2,35 @@
   "name": "guardian-news",
   "version": "1.0.0",
   "description": "",
-  "main": "src/js/app.modules.js",
+  "main": "src/js/app.module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development webpack-dev-server --progress",
-    "start": "webpack"
+    "start": "webpack-dev-server --open",
+    "build": "webpack --config webpack.config.js",
+    "build:prod": "webpack --config webpack.production.config.js"
   },
   "author": "Natalia Syngaievska",
   "license": "ISC",
   "dependencies": {
-    "Guardian-News": "https://github.com/singnata/Guardian-News/tarball/master",
-    "angular": "^1.6.6",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "guardian-news": "https://github.com/singnata/Guardian-News/tarball/master",
-    "modclean": "^2.1.2",
-    "save": "^2.3.1",
-    "style-loader": "^0.19.0"
+    "angular": "^1.6.6"  
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-angularjs-annotate": "^0.8.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/singnata/Guardian-News.git"
-  }
+  },
+  "babel": {}
 }

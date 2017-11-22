@@ -1,4 +1,4 @@
-function limitFilter($filter) {
+export function limitFilter($filter) {
  	return function(newsSummary, limit) {		    
   if (!newsSummary) return;		   
     if (newsSummary.length < limit) {		      
@@ -7,4 +7,3 @@ function limitFilter($filter) {
     return $filter('limitTo')(newsSummary, limit) + '...';		      
   };		   
 };	
-export default limitFilter; 

@@ -18,5 +18,12 @@ module.exports = {
       }  
     ],
   },
-  plugins: [new ExtractTextPlugin("bundle.css")],
+  plugins: [
+    new ExtractTextPlugin("bundle.css"),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        mangle: false
+      }
+    })
+  ]
 };
