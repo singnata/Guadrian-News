@@ -1,5 +1,6 @@
 export class NewsFeedController {
     constructor(newsDataService) {
+      'ngInject';
       this.newsDataService = newsDataService;
       this.currentPage = 1;
       this.errorMessage = false;

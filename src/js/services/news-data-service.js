@@ -1,5 +1,6 @@
 export class NewsDataService {
   constructor($http) {
+    'ngInject';
     this.$http = $http;
     this.apiKey = 'c589790a-23e4-4052-85be-28e4a1e5bd95'
   }
@@ -11,7 +12,7 @@ export class NewsDataService {
           'page-size': 10,
           'api-key': this.apiKey
         }
-      }).then(function(response) {
+      }).then((response) => {
         return {
           newsItems: response.data.response.results,
           pages: response.data.response.pages
@@ -25,7 +26,7 @@ export class NewsDataService {
         'show-blocks': 'body',
         'api-key': this.apiKey
         }
-      }).then(function(response) {
+      }).then((response) => {
         return {
           newsItemSummary: response.data.response.results[0].blocks.body[0].bodyTextSummary
         };

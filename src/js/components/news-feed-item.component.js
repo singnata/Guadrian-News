@@ -1,5 +1,6 @@
 export class NewsFeedItemController {
   constructor(newsDataService) {
+    'ngInject';
     this.newsDataService = newsDataService;
     this.isLoading = true;
     this.show = false;
