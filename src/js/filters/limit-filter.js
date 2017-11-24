@@ -1,4 +1,4 @@
-export function limitFilter($filter) {
+export /* @ngInject */ function limitFilter($filter) {
  	return function(newsSummary, limit) {		    
   if (!newsSummary) return;		   
     if (newsSummary.length < limit) {		      
