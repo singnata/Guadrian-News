@@ -12,6 +12,6 @@ angular.module('myApp', [])
 	.component('newsFeedItem', newsFeedItemComponent)
 	.component('newsPagination', newsPaginationComponent)
 	.service('newsDataService', NewsDataService)
-	.directive('onEnterBlurDirective', onEnterBlurDirective)
+	.directive('onEnterBlur', onEnterBlurDirective)
 	.filter('limitFilter', limitFilter);
 
